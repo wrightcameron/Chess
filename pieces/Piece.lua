@@ -11,7 +11,7 @@ function Piece.new(init)
   local self = setmetatable({}, MyClass)
   self.isAvailable = init
   self.x = init
-  self.y = init;
+  self.y = init
   return self
 end
 
