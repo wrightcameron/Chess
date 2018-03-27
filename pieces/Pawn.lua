@@ -8,11 +8,22 @@ Pawn.numOfMoves = 0;
 
 function Pawn: initalize(init,)
 
+
+
 function Pawn: move()
     if (numOfMoves > 0) then
+
+        local x = getX()
+        setX(x + 1)
+        print('Move up one')
+    else
+        local x = getX()
+        setX(x + 2)
         print('Move up two')
-        Piece.setX(getX() + 2)
     end
+end
+
+
 
 
 
