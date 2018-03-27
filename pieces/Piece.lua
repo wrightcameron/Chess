@@ -32,11 +32,15 @@ function Piece:setY(y)
   self.y = y
 end
 
-function Piece:move()
+function Piece:validMoves()
   return nil
 end
 
-<-- ## TESTING ## -->
+function Piece:move(x, y)
+  return nil
+end
+
+-- ## Testing ##
 local p1 = Piece:new(true,45,45)
 p1:setX(12)
 print(p1:getX())
