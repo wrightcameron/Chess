@@ -1,3 +1,6 @@
+package.path = package.path .. ";../dependencies/?.lua"
+local class = require 'middleclass'
+
 local Piece = {}
 Piece.__index = Piece
 
@@ -7,7 +10,7 @@ setmetatable(Piece, {
   end,
 })
 
-function Piece.new(init)
+function Piece.initialize(init)
   local self = setmetatable({}, MyClass)
   self.isAvailable = init
   self.x = init
@@ -41,5 +44,5 @@ function Piece:setY(y)
 end
 
 function Piece:move()
-  return null
+  return nil
 end

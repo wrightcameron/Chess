@@ -1,30 +1,20 @@
---[[
+package.path = package.path .. ";../dependencies/?.lua"
+local class = require 'middleclass'
 
-function inheritsFrom(Piece)
-    if Piece then
-        setmetatable(Pawn, {__index = baseClass})
+Pawn = class('Pawn', Piece)
+
+Pawn.numOfMoves = 0;
+
+
+function Pawn: initalize(init,)
+
+function Pawn: move()
+    if (numOfMoves > 0) then
+        print('Move up two')
+        Piece.setX(getX() + 2)
     end
 
-    return Pawn
 
-end
---]]
 
-local numMoves = 0;
-
-Pawn = Piece:new{}
-
-function: Pawn:move()
-{
-    if(numMoves == 0)
-    {
-        Pawn:setX() = Pawn:getX() + 2
-    }
-end
-else
-    Pawn:setX() = Pawn:getX() + 1
-end
-}
-end
 
 
