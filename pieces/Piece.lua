@@ -1,31 +1,20 @@
 package.path = package.path .. ";../dependencies/?.lua"
 local class = require 'middleclass'
 
-local Piece = {}
-Piece.__index = Piece
-
-setmetatable(Piece, {
-  __call = function (cls, ...)
-    return cls.new(...)
-  end,
-})
-
-function Piece.initialize(init)
-  local self = setmetatable({}, MyClass)
-  self.isAvailable = init
-  self.x = init
-  self.y = init
-  return self
+Piece = class('Piece')
+function Piece:initialize(available, x, y)
+  self.available = available
+  self.x = x
+  self.y = y
 end
 
 function Piece:isAvailable()
-  return self.isAvailable
+  return self.available
 end
 
-function Piece:setAvailable(isAvailable)
-  self.isAvailable = isAvailable
+function Piece:setAvailable(available)
+  self.available = available
 end
-
 
 function Piece:getX()
   return self.x
@@ -45,4 +34,17 @@ end
 
 function Piece:move()
   return nil
+end
+
+<-- ## TESTING ## -->
+local p1 = Piece:new(true,45,45)
+p1:setX(12)
+print(p1:getX())
+p1:setY(24)
+print(p1:getY())
+p1:setAvailable(false)
+value = p1:isAvailable()
+if  value == true
+  then print("TRUE") 
+  else print("FALSE") 
 end
