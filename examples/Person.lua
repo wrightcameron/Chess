@@ -1,4 +1,5 @@
-local class = require '../dependencies/middleclass'
+package.path = package.path .. ";../dependencies/?.lua"
+local class = require 'middleclass'
 
 Person = class('Person') --this is the same as class('Person', Object) or Object:subclass('Person')
 function Person:initialize(name)
@@ -22,3 +23,8 @@ function AgedPerson:speak()
     print('I am an adult.')
   end
 end
+
+local p1 = AgedPerson:new('Billy the Kid', 13) -- this is equivalent to AgedPerson('Billy the Kid', 13) - the :new part is implicit
+local p2 = AgedPerson:new('Luke Skywalker', 21)
+p1:speak()
+p2:speak()
