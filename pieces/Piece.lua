@@ -37,18 +37,6 @@ function Piece:validMoves()
 end
 
 function Piece:move(x, y)
-  return nil
-end
-
--- ## Testing ##
-local p1 = Piece:new(true,45,45)
-p1:setX(12)
-print(p1:getX())
-p1:setY(24)
-print(p1:getY())
-p1:setAvailable(false)
-value = p1:isAvailable()
-if  value == true
-  then print("TRUE") 
-  else print("FALSE") 
+  self.setX(x)
+  self.setY(y)
 end

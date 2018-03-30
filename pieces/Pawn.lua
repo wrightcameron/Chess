@@ -1,30 +1,48 @@
+package.path = package.path .. ";./?.lua"
+local class = require 'Piece'
 package.path = package.path .. ";../dependencies/?.lua"
 local class = require 'middleclass'
 
 Pawn = class('Pawn', Piece)
-
 Pawn.numOfMoves = 0;
-
-
-function Pawn: initalize(init,)
-
-
-
-function Pawn: move()
-    if (numOfMoves > 0) then
-
-        local x = getX()
-        setX(x + 1)
-        print('Move up one')
-    else
-        local x = getX()
-        setX(x + 2)
-        print('Move up two')
-    end
+function Pawn:initialize(available, x, y,directionUp)
+    Piece.initialize(self,available,x,y)
+    self.directionUp = directionUp
+    self.firstMove = true
 end
 
+function Pawn:isDirectionUp()
+    return self.directionUp
+end
 
+function Pawn:setDirectionUp(directionUp)
+    self.directionUp = directionUp
+end
 
+function Piece:validMoves()
+    moveList = {};
+    --Direction it can move.
+    if self.directionUp then
+        if not self.firstMove then
+            table.insert(moveList, {self.x,self.y+1})
+        else
+            table.insert(moveList, {self.x,self.y+2})
+            self.firstMove = false
+    else
+        if not self.firstMove then
+            table.insert(moveList, {self.x,self.y-1})
+        else
+            table.insert(moveList, {self.x,self.y-2})
+            self.firstMove = false
+    end
+    --If opponient piece is there it can also attakck.
+    if self.directionUp then
+        table.insert(moveList, {self.x+1,self.y+1})
+    else
+        table.insert(moveList, {self.x-1,self.y-1})
+    end
+    return moveList;
+end
 
 
 
