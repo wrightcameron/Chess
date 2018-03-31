@@ -10,9 +10,11 @@ end
 
 function occupySpot(piece)
     if self.piece ~= nil then
-            self.piece.setAvailable(false)
+        self.piece.setAvailable(false)
     else 
         self.piece = piece
+        self.piece:setX(self.x)
+        self.piece:setY(self.y)
     end
 end
 
@@ -28,4 +30,8 @@ function releaseSpot()
     releasedPiece = self.piece
     self.piece = nil
     return releasedPiece
+end
+
+function getPiece()
+    return self.piece
 end

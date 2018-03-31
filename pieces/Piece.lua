@@ -2,8 +2,8 @@ package.path = package.path .. ";../dependencies/?.lua"
 local class = require 'middleclass'
 
 Piece = class('Piece')
-function Piece:initialize(available, x, y)
-  self.available = available
+function Piece:initialize(x, y)
+  self.available = true
   self.x = x
   self.y = y
 end
@@ -32,7 +32,7 @@ function Piece:setY(y)
   self.y = y
 end
 
-function Piece:validMoves()
+function Piece:validMoves(Board)
   return nil
 end
 
