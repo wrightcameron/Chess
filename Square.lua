@@ -8,7 +8,7 @@ function Square:initialize(x, y)
   self.piece = nil
 end
 
-function occupySpot(piece)
+function Square:occupySpot(piece)
     if self.piece ~= nil then
         self.piece.setAvailable(false)
     else 
@@ -18,7 +18,7 @@ function occupySpot(piece)
     end
 end
 
-function isOccupied()
+function Square:isOccupied()
     if self.piece ~= nil then
         return true
     else

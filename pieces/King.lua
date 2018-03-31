@@ -1,7 +1,5 @@
 package.path = package.path .. ";./?.lua"
 local class = require 'Piece'
-package.path = package.path .. ";../?.lua"
-local class = require 'Board'
 package.path = package.path .. ";../dependencies/?.lua"
 local class = require 'middleclass'
 

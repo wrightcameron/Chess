@@ -1,9 +1,12 @@
 package.path = package.path .. ";./?.lua"
-local Square = require 'Square'
+local squareClass = require 'Square'
 package.path = package.path .. ";./pieces/?.lua"
-local Rook = require 'Rook'
-local Pawn = require 'Pawn'
-local Knight = require 'Knight'
+local rookClass = require 'Rook'
+local pawnClass = require 'Pawn'
+local knightClass = require 'Knight'
+local bishopClass = require 'Bishop'
+local queenClass = require 'Queen'
+local kingClass = require 'King'
 package.path = package.path .. ";./dependencies/?.lua"
 local class = require 'middleclass'
 

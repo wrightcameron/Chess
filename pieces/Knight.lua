@@ -1,15 +1,18 @@
+package.path = package.path .. ";./?.lua"
+local class = require 'Piece'
 package.path = package.path .. ";../dependencies/?.lua"
 local class = require 'middleclass'
 
 Knight = class('Knight', Piece)
-
-function Knight:initialize(init)
-    Piece.initialize(self, init)
+function Knight:initialize( x, y)
+    Piece.initialize(self,x,y)
 end
 
-local x = getX()
-local y = getY()
+function Knight:validMoves(Board)
+    return nil
+end
 
+--[[
 function Knight:move(direction)
     if(direction == "upLeft" && (x > 1 && y >= 1)) then
         setX(self.x -1)
@@ -37,5 +40,7 @@ function Knight:move(direction)
         setY(self.y -2)
     end
 end
+]]
+
 
 

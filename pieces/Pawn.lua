@@ -19,7 +19,7 @@ function Pawn:setDirectionUp(directionUp)
     self.directionUp = directionUp
 end
 
-function Piece:validMoves()
+function Pawn:validMoves()
     moveList = {};
     --Direction it can move.
     if self.directionUp then
