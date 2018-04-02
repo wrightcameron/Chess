@@ -2,10 +2,10 @@ package.path = package.path .. ";../dependencies/?.lua"
 local class = require 'middleclass'
 
 Piece = class('Piece')
-function Piece:initialize(x, y)
+function Piece:initialize()
   self.available = true
-  self.x = x
-  self.y = y
+  self.x = 0
+  self.y = 0
 end
 
 function Piece:isAvailable()
@@ -39,4 +39,8 @@ end
 function Piece:move(x, y)
   self.setX(x)
   self.setY(y)
+end
+
+function Piece:toString()
+  return nil
 end

@@ -26,12 +26,12 @@ function Square:isOccupied()
     end
 end
 
-function releaseSpot()
+function Square:releaseSpot()
     releasedPiece = self.piece
     self.piece = nil
     return releasedPiece
 end
 
-function getPiece()
+function Square:getPiece()
     return self.piece
 end

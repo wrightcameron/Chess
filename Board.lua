@@ -23,19 +23,19 @@ function Board:initialize()
   end
   --Define white and black piecies
   --TODO Might change the arguments in the Pieces
-  self.whitePieces = {Pawn:new(),Pawn:new(),Pawn:new(),Pawn:new(),Pawn:new(),Pawn:new(),Pawn:new(),Pawn:new(),
+  self.whitePieces = {Pawn:new(true),Pawn:new(true),Pawn:new(true),Pawn:new(true),Pawn:new(true),Pawn:new(true),Pawn:new(true),Pawn:new(true),
                       Rook:new(),Rook:new(),
                       Knight:new(),Knight:new(),
                       Bishop:new(),Bishop:new(),
                       Queen:new(),
                       King:new()}
-  self.blackPieces = {Pawn:new(),Pawn:new(),Pawn:new(),Pawn:new(),Pawn:new(),Pawn:new(),Pawn:new(),Pawn:new(),
+  self.blackPieces = {Pawn:new(false),Pawn:new(false),Pawn:new(false),Pawn:new(false),Pawn:new(false),Pawn:new(false),Pawn:new(false),Pawn:new(false),
                       Rook:new(),Rook:new(),
                       Knight:new(),Knight:new(),
                       Bishop:new(),Bishop:new(),
                       Queen:new(),
                       King:new()}
-  --Add pieces to the board.
+  -- ## Add pieces to the board ##
   --White pieces [x][y]
   self.squares[1][2]:occupySpot(self.whitePieces[1]) --Pawn
   self.squares[2][2]:occupySpot(self.whitePieces[2])
@@ -73,7 +73,7 @@ function Board:initialize()
 end
 
 --Move Piece
-function movePiece(piece, newX, newY)
+function Board:movePiece(piece, newX, newY)
   squareOld = self.squares[piece:getX()][piece:getY()]
   squareOld:releaseSpot()
   newSquare = self.squares[newX][newY]
@@ -81,7 +81,7 @@ function movePiece(piece, newX, newY)
 end
 
 --Check if Square exists 
-function validMove(X,Y)
+function Board:validMove(X,Y)
   square = self.squares[X][Y]
   if square ~= nil then
     return true
@@ -90,7 +90,7 @@ function validMove(X,Y)
 end
 
 --Get piece at Sqaure
-function getPieceAtsquare(X, Y)
+function Board:getPieceAtsquare(X, Y)
   square = self.squares[X][Y]
   if square:isOccupied() then
     return square:getPiece()
@@ -99,11 +99,15 @@ function getPieceAtsquare(X, Y)
 end
 
 --Return all white pieces
-function getWhitePieces()
+function Board:getWhitePieces()
   return self.whitePieces
 end
 
 --return all black pieces
-function getBlackPieces()
+function Board:getBlackPieces()
   return self.blackPieces
+end
+
+function Board:getAllPieces()
+  return nil
 end
