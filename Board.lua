@@ -111,3 +111,57 @@ end
 function Board:getAllPieces()
   return nil
 end
+
+function Board:printBoard()
+  for y=8, 1,-1 do
+    for x=8,1,-1 do
+        piece = self:getPieceAtsquare(x, y)
+        if piece ~= nil then
+          if string.match(piece:__tostring(), "Pawn") then
+            if piece:getType() = "white" then
+              io.write("P") 
+            else
+              io.write("p")
+            end
+           elseif string.match(piece:__tostring(), "Rook") then
+            if piece:getType = "white" then
+              io.write("R") 
+            else
+              io.write("r")
+            end
+          elseif string.match(piece:__tostring(), "Knight") then
+            if piece:getType = "white" then
+              io.write("K") 
+            else
+              io.write("k")
+            end
+          elseif string.match(piece:__tostring(), "Bishop") then
+            if piece:getType = "white" then
+              io.write("B") 
+            else
+              io.write("b")
+            end
+          elseif string.match(piece:__tostring(), "Queen") then
+            if piece:getType = "white" then
+              io.write("Q") 
+            else
+              io.write("q")
+            end
+          elseif string.match(piece:__tostring(), "King") then
+            if piece:getType = "white" then
+              io.write("#") 
+            else
+              io.write("$")
+            end
+          else
+            io.write("?")
+          end
+        else
+          io.write("*")
+        end
+        io.write(" ")
+      end
+      io.write("\n")
+  end
+end
+  
