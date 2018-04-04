@@ -5,9 +5,6 @@ Piece = class('Piece')
 function Piece:initialize(type)
   self.available = true
   self.x = 0
-<<<<<<< HEAD
-  self.y = 0s
-=======
   self.y = 0
   self.type = type
 end
@@ -18,7 +15,6 @@ end
 
 function Piece:setType(type)
   self.type = type
->>>>>>> 1d8327a7e4428aa484a948f978e6049dc7c39ff0
 end
 
 function Piece:isAvailable()
