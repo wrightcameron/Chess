@@ -4,8 +4,8 @@ package.path = package.path .. ";../dependencies/?.lua"
 local class = require 'middleclass'
 
 Bishop = class('Bishop', Piece)
-function Bishop:initialize( x, y)
-    Piece.initialize(self,x,y)
+function Bishop:initialize(type)
+    Piece.initialize(self,type)
 end
 
 function Piece:validMoves(Board)

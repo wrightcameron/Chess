@@ -4,8 +4,8 @@ package.path = package.path .. ";../dependencies/?.lua"
 local class = require 'middleclass'
 
 Queen = class('Queen', Piece)
-function Queen:initialize( x, y)
-    Piece.initialize(self,x,y)
+function Queen:initialize(type)
+    Piece.initialize(self,type)
 end
 
 function Queen:validMoves(board)

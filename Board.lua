@@ -23,18 +23,18 @@ function Board:initialize()
   end
   --Define white and black piecies
   --TODO Might change the arguments in the Pieces
-  self.whitePieces = {Pawn:new(true),Pawn:new(true),Pawn:new(true),Pawn:new(true),Pawn:new(true),Pawn:new(true),Pawn:new(true),Pawn:new(true),
-                      Rook:new(),Rook:new(),
-                      Knight:new(),Knight:new(),
-                      Bishop:new(),Bishop:new(),
-                      Queen:new(),
-                      King:new()}
-  self.blackPieces = {Pawn:new(false),Pawn:new(false),Pawn:new(false),Pawn:new(false),Pawn:new(false),Pawn:new(false),Pawn:new(false),Pawn:new(false),
-                      Rook:new(),Rook:new(),
-                      Knight:new(),Knight:new(),
-                      Bishop:new(),Bishop:new(),
-                      Queen:new(),
-                      King:new()}
+  self.whitePieces = {Pawn:new("white",true),Pawn:new("white",true),Pawn:new("white",true),Pawn:new("white",true),Pawn:new("white",true),Pawn:new("white",true),Pawn:new("white",true),Pawn:new("white",true),
+                      Rook:new("white"),Rook:new("white"),
+                      Knight:new("white"),Knight:new("white"),
+                      Bishop:new("white"),Bishop:new("white"),
+                      Queen:new("white"),
+                      King:new("white")}
+  self.blackPieces = {Pawn:new("black",false),Pawn:new("black",false),Pawn:new("black",false),Pawn:new("black",false),Pawn:new("black",false),Pawn:new("black",false),Pawn:new("black",false),Pawn:new("black",false),
+                      Rook:new("black"),Rook:new("black"),
+                      Knight:new("black"),Knight:new("black"),
+                      Bishop:new("black"),Bishop:new("black"),
+                      Queen:new("black"),
+                      King:new("black")}
   -- ## Add pieces to the board ##
   --White pieces [x][y]
   self.squares[1][2]:occupySpot(self.whitePieces[1]) --Pawn
@@ -113,42 +113,53 @@ function Board:getAllPieces()
 end
 
 function Board:printBoard()
+  io.write("   ")
+  for i=1,8 do
+    io.write(i)
+    io.write(" ")
+  end
+  io.write("\n")
+  io.write(" + ---------------")
+  io.write("\n")
   for y=8, 1,-1 do
+    io.write(y)
+    io.write("|")
+    io.write(" ")
     for x=8,1,-1 do
         piece = self:getPieceAtsquare(x, y)
         if piece ~= nil then
           if string.match(piece:__tostring(), "Pawn") then
-            if piece:getType() = "white" then
+            if string.match(piece:getType(),"white") then
               io.write("P") 
             else
               io.write("p")
             end
            elseif string.match(piece:__tostring(), "Rook") then
-            if piece:getType = "white" then
+            if string.match(piece:getType(),"white") then
               io.write("R") 
             else
               io.write("r")
             end
           elseif string.match(piece:__tostring(), "Knight") then
-            if piece:getType = "white" then
+            if string.match(piece:getType(),"white") then
               io.write("K") 
             else
               io.write("k")
             end
           elseif string.match(piece:__tostring(), "Bishop") then
-            if piece:getType = "white" then
+            if string.match(piece:getType(),"white") then
               io.write("B") 
             else
               io.write("b")
             end
           elseif string.match(piece:__tostring(), "Queen") then
-            if piece:getType = "white" then
+            if string.match(piece:getType(),"white") then
               io.write("Q") 
             else
               io.write("q")
             end
           elseif string.match(piece:__tostring(), "King") then
-            if piece:getType = "white" then
+            if string.match(piece:getType(),"white") then
               io.write("#") 
             else
               io.write("$")
@@ -163,5 +174,6 @@ function Board:printBoard()
       end
       io.write("\n")
   end
+  io.write("\n")
 end
   

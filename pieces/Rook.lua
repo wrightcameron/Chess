@@ -4,8 +4,8 @@ package.path = package.path .. ";../dependencies/?.lua"
 local class = require 'middleclass'
 
 Rook = class('Rook', Piece)
-function Rook:initialize( x, y)
-    Piece.initialize(self,x,y)
+function Rook:initialize(type)
+    Piece.initialize(self,type)
 end
 
 function Rook:validMoves(board)

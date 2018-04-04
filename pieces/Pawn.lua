@@ -5,8 +5,8 @@ local class = require 'middleclass'
 
 Pawn = class('Pawn', Piece)
 Pawn.numOfMoves = 0;
-function Pawn:initialize(directionUp)
-    Piece.initialize(self)
+function Pawn:initialize(type,directionUp)
+    Piece.initialize(self,type)
     self.directionUp = directionUp
     self.firstMove = true
 end
