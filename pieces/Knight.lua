@@ -9,7 +9,44 @@ function Knight:initialize( x, y)
 end
 
 function Knight:validMoves(Board)
-    return nil
+   moveList = {}
+
+   if board:validMove(self.x + 1, self.y + 2) then
+    table.insert(moveList, {self.x+1,self.y+2})
+   end
+
+   if board:validMove(self.x + 1, self.y - 2) then
+    table.insert(moveList, {self.x + 1, self.y - 2})
+   end
+
+   if board:validMove(self.x - 1, self.y + 2) then
+    table.insert(moveList, {self.x - 1, self.y + 2})
+   end
+
+   if board:validMove(self.x - 1, self.y - 2) then
+    table.insert(moveList, {self.x - 1, self.y - 2})
+   end
+
+    if board:validMove(self.x + 2, self.y + 1) then
+        table.insert(moveList, {self.x + 2, self.y + 1})
+    end
+
+    if board:validMove(self.x + 2, self.y -1) then
+        table.insert(moveList, {self.x + 2, self.y - 1})
+    end
+
+    if board:validMove(self.x - 2, self.y + 1) then
+        table.insert(moveList, {self.x - 2, self.y + 1})
+    end
+    if board:validMove(self.x - 2, self.y - 1) then
+        table.insert(moveList, {self.x - 2, self.y - 1})
+    end
+
+
+    return moveList
+    
+end
+
 end
 
 --[[

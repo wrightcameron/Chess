@@ -5,7 +5,7 @@ Piece = class('Piece')
 function Piece:initialize()
   self.available = true
   self.x = 0
-  self.y = 0
+  self.y = 0s
 end
 
 function Piece:isAvailable()
