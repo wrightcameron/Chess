@@ -10,6 +10,26 @@ end
 
 function Piece:validMoves(Board)
     moveList = {};
-    --Direction it can move.
+
+    local i = 1
+
+    for i, 8, 1 do
+
+        if board:validMove(self.x + i, self.y + i) then
+            table.insert(moveList, {self.x+i,self.y+i})
+        end
+        if board:validMove(self.x + i, self.y - i) then
+            table.insert(moveList, {self.x+i,self.y-i})
+        end
+        if board:validMove(self.x - i, self.y - i) then
+            table.insert(moveList, {self.x-i,self.y-i})
+        end
+        
+        if board:validMove(self.x - i, self.y + i) then
+            table.insert(moveList, {self.x-i,self.y+i})
+        end
+    end
+end
+
     return moveList;
 end

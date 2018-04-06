@@ -11,38 +11,30 @@ end
 function Rook:validMoves(board)
     moveList = {}
 
-    if self.directionUp then 
-        
-        local vertical = io.read()
+    local i = 1
 
-        if board:validMove(self.x, self.y + self.vertical) then
-            table.insert(moveList, {self.x,self.y + self.vertical})
+    for i, 8, 1 do 
+
+        if board:validMove(self.x, self.y + i) then
+        table.insert(moveList, {self.x,self.y+i})
         end
+
+        if board:validMove(self.x, self.y - i) then
+            table.insert(moveList, {self.x,self.y-i})
+        end
+
+        if board:validMove(self.x + i, self.y) then
+            table.insert(moveList, {self.x+i,self.y})
+        end
+
+        if board:validMove(self.x - i, self.y) then
+            table.insert(moveList, {self.x - i,self.y})
+        end
+
+        return moveList;
     end
 
-    if self.directionDown then
-        local vertical = io.read()
 
-        if board:validMove(self.x, self.y - self.vertical) then
-            table.insert(moveList, {self.x,self.y-self.vertical})
-        end
-    end
-
-    if self.directionLeft then
-        local horizontal = io.read()
-
-        if board:validMove(self.x - self.horizontal, self.y) then
-            table.insert(moveList, {self.x-self.horizontal,self.y})
-        end
-    end
-
-    if self.directionRight then
-        local horizontal = io.read()
-
-        if board:validMove(self.x + self.horizontal, self.y) then 
-            table.insert(moveList, {self.x + self.horizontal,self.y})
-        end
-    end
 
     return moveList
 end
