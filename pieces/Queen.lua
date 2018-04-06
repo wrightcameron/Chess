@@ -11,52 +11,37 @@ end
 function Queen:validMoves(board)
     
     moveList = {}
-   
-    local i = 1
-    local j = 1
+
+    local i = 1;
 
     for i, 8, 1 do
-        for j, 8, 1 do
-
-            if table.validMove(i, j) then
-                table.insert( moveList, {self.i, self.j})
-            end
+        if board:validMove(self.x, self.y + i) then
+            table.insert(moveList, {self.x,self.y+i})
         end
-    end
-
-    i = 1
-    j = 8
-   
-
-    for i, 8, 1 do
-        for j, 1, -1 do
-
-            if table.validMove(i, j) then
-                table.insert( moveList, {self.i, self.j})
-            end
+    
+        if board:validMove(self.x, self.y - i) then
+            table.insert(moveList, {self.x,self.y-i})
+         end
+    
+        if board:validMove(self.x + i, self.y) then
+            table.insert(moveList, {self.x+i,self.y})
         end
-    end
-
-    i = 1
-    j = 1
-
-    for j, 8, 1 do
-        for i, 8, 1 do 
-
-            if table.validMove(i, j) then
-                table.insert( moveList, {self.i, self.j})
-            end
+    
+        if board:validMove(self.x - i, self.y) then
+            table.insert(moveList, {self.x - i,self.y})
         end
-    end
-
-    i = 8
-    j = 1
-
-    for j, 8, 1 do
-        for i, 1, -1 do
-            if table.validMove(i, j) then
-                table.insert( moveList, {self.i, self.j})
-            end
+        if board:validMove(self.x + i, self.y + i) then
+            table.insert(moveList, {self.x+i,self.y+i})
+        end
+        if board:validMove(self.x + i, self.y - i) then
+            table.insert(moveList, {self.x+i,self.y-i})
+        end
+        if board:validMove(self.x - i, self.y - i) then
+            table.insert(moveList, {self.x-i,self.y-i})
+        end
+        
+        if board:validMove(self.x - i, self.y + i) then
+            table.insert(moveList, {self.x-i,self.y+i})
         end
     end
     
