@@ -26,7 +26,7 @@ while isGameFinised ~= true do
         print("PLayer black's turn.")
     end
 
-    print("What would you like to do? Type A for available moves, M to move piece, G to get pieces, P to print board, and H for help. ")
+    print("What would you like to do? Type A for available moves, M to move piece, G to get pieces, P to print board, V to check if move is valid and H for help.")
     --Open scanner and ask player what they want to do.
         --Avaible moves
         --Move piece
@@ -39,23 +39,31 @@ while isGameFinised ~= true do
         help()
     end
 
-    if(name == 'P' or name == 'p') then
+    elseif(name == 'P' or name == 'p') then
         printBoard()
     end
 
-    if(name == 'A' or name == 'a') then
-
-        validMoves()
+    elseif(name == 'V' or name == 'v') 
+        
+        validMove()
     end
 
-    if(name == 'M' or name == 'm') then
+    elseif(name == 'A' or name == 'a') then
+
+        availableMoves()
+    end
+
+    elseif(name == 'M' or name == 'm') then
 
     end
 
-    if(nam == 'G' or name == 'g') then 
+    elseif(nam == 'G' or name == 'g') then 
 
     end
 
+    else
+        print("Invalid character input. Please enter character again.")
+    end
 
 
 
@@ -67,7 +75,21 @@ function printBoard(board)
     board:printBoard()
 end
 
-function validMoves()
+function validMove()
+    print("Enter an X coordinate")
+    local x = io.read()
+    print("Enter a Y coordinate")
+    local y = io.read()
+
+    if(board:validMove(x, y) == true) then
+        print("Valid move!")
+    end
+    else
+        print("Invalid move!")
+    end
+end
+
+function availableMoves()
     print(rook:validMoves())
     print(knight:validMoves())
     print(bishop:validMoves())
@@ -77,7 +99,8 @@ function validMoves()
 end
 
 function help()
-    print()
+    print("Type A for available moves, M to move piece, G to get pieces, P to print board, V to check if move is valid and H for help.")
+end
 
 function isKingCheckMated()
     return false
