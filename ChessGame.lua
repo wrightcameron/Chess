@@ -8,10 +8,10 @@ print("Ready to play a game of chess?")
 board = Board:new()
 rook = Rook:new()
 bishop = Bishop:new()
-knight = knight:new()
-queen = queen:new()
-king = king:new()
-pawn = pawn:new()
+knight = Knight:new()
+queen = Queen:new()
+king = King:new()
+pawn = Pawn:new()
 
 
 isGameFinised = true
@@ -46,7 +46,6 @@ while isGameFinised ~= true do
     if(name == 'A' or name == 'a') then
 
         validMoves()
-
     end
 
     if(name == 'M' or name == 'm') then
