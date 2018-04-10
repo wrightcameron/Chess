@@ -8,6 +8,7 @@ function King:initialize(type)
     Piece.initialize(self,type)
 end
 
+
 function King:validMoves(board)
     moveList = {}
     --Left Up
@@ -44,3 +45,5 @@ function King:validMoves(board)
     end
     return moveList
 end
+
+function King:inCheck(board)
