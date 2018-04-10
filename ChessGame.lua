@@ -3,16 +3,43 @@ local class = require 'Board'
 package.path = package.path .. ";./dependencies/?.lua"
 local class = require 'middleclass'
 
+function printBoard(board)
+    board:printBoard()
+end
+
+function validMove()
+    print("Enter an X coordinate")
+    local x = tonumber(io.read())
+    print("Enter a Y coordinate")
+    local y = tonumber(io.read())
+    if(board:validMove(x, y) == true) then
+        print("Valid move!")
+    else
+        print("Invalid move!")
+    end
+end
+
+function availableMoves()
+ 
+end
+
+function help()
+    print("Type A for available moves, M to move piece, G to get pieces, P to print board, V to check if move is valid and H for help.")
+end
+
+function isKingCheckMated()
+    return false
+end
+
 --The driver of the chess game, run this.
 print("Ready to play a game of chess?")
 board = Board:new()
-
-
 
 isGameFinised = true
 isWhitePlayer = true
 
 board:printBoard()
+validMove()
 while isGameFinised ~= true do 
     --Tell players who is going
     if isWhitePlayer == true then
@@ -32,66 +59,21 @@ while isGameFinised ~= true do
 
     if(name == 'H' or name == 'h') then 
         help()
-    end
-
     elseif(name == 'P' or name == 'p') then
         printBoard()
-    end
-
-    elseif(name == 'V' or name == 'v') 
-        
+    elseif(name == 'V' or name == 'v') then
         validMove()
-    end
-
     elseif(name == 'A' or name == 'a') then
-
         availableMoves()
-    end
-
     elseif(name == 'M' or name == 'm') then
 
-    end
-
     elseif(nam == 'G' or name == 'g') then 
-
-    end
 
     else
         print("Invalid character input. Please enter character again.")
     end
 
-
-
-
-
-end
-
-function printBoard(board)
-    board:printBoard()
-end
-
-function validMove()
-    print("Enter an X coordinate")
-    local x = io.read()
-    print("Enter a Y coordinate")
-    local y = io.read()
-
-    if(board:validMove(x, y) == true) then
-        print("Valid move!")
+    if isKingCheckMated() then
+        isGameFinised = true
     end
-    else
-        print("Invalid move!")
-    end
-end
-
-function availableMoves()
- 
-end
-
-function help()
-    print("Type A for available moves, M to move piece, G to get pieces, P to print board, V to check if move is valid and H for help.")
-end
-
-function isKingCheckMated()
-    return false
 end

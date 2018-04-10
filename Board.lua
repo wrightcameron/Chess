@@ -81,7 +81,7 @@ function Board:movePiece(piece, newX, newY)
 end
 
 --Check if Square exists 
-function Board:validMove(X,Y)
+function Board:validMove(X, Y)
   square = self.squares[X][Y]
   if square ~= nil then
     return true
