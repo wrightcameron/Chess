@@ -9,7 +9,7 @@ function King:initialize(type)
 end
 
 function King:validMoves(board)
-    moveList = {};
+    moveList = {}
     --Left Up
     if board:validMove(self.x-1,self.y+1) then
         table.insert(moveList, {self.x-1,self.y+1})
@@ -42,5 +42,5 @@ function King:validMoves(board)
     if board:validMove(self.x+1,self.y-1) then
         table.insert(moveList, {self.x+1,self.y-1})
     end
-    return moveList;
+    return moveList
 end

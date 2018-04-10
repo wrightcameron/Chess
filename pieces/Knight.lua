@@ -41,43 +41,7 @@ function Knight:validMoves(Board)
     if board:validMove(self.x - 2, self.y - 1) then
         table.insert(moveList, {self.x - 2, self.y - 1})
     end
-
-
-    return moveList
-    
+    return moveList 
 end
-
-end
-
---[[
-function Knight:move(direction)
-    if(direction == "upLeft" && (x > 1 && y >= 1)) then
-        setX(self.x -1)
-        setY(self.y +2)
-    elseif(direction == 'upRight' (x > 1 && y >= 1)) then
-        setX(self.x + 1)
-        setY(self.y + 2)
-    elseif(direction == 'leftUp' (x > 1 && y >= 1)) then
-        setX(self.x -2)
-        setY(self.y + 1)
-    elseif(direction == 'leftDown' (x > 1 && y >= 1)) then
-        setX(self.x - 2)
-        setY(self.y -1)
-    elseif(direction == 'rightUp' (x > 1 && y >= 1)) then
-        setX(self.x + 2)
-        setY(self.y + 1)
-    elseif(direction == 'rightDown' (x > 1 && y >= 1)) then
-        setX(self.x + 2)
-        setY(self.y -1)
-    elseif(direction == 'downLeft' (x > 1 && y >= 1)) then
-        setX(self.x -1)
-        setY(self.y -2)
-    elseif(direction == 'downRight' (x > 1 && y >= 1)) then
-        setX(self.x + 1)
-        setY(self.y -2)
-    end
-end
-]]
-
 
 

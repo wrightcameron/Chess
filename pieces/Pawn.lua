@@ -20,7 +20,7 @@ function Pawn:setDirectionUp(directionUp)
 end
 
 function Pawn:validMoves()
-    moveList = {};
+    moveList = {}
     --Direction it can move.
     if self.directionUp then
         if not self.firstMove then
@@ -43,7 +43,7 @@ function Pawn:validMoves()
     else
         table.insert(moveList, {self.x-1,self.y-1})
     end
-    return moveList;
+    return moveList
 end
 
 
