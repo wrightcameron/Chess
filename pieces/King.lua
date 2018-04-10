@@ -47,3 +47,5 @@ function King:validMoves(board)
 end
 
 function King:inCheck(board)
+
+end
