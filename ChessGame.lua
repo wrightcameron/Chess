@@ -6,12 +6,7 @@ local class = require 'middleclass'
 --The driver of the chess game, run this.
 print("Ready to play a game of chess?")
 board = Board:new()
-rook = Rook:new()
-bishop = Bishop:new()
-knight = Knight:new()
-queen = Queen:new()
-king = King:new()
-pawn = Pawn:new()
+
 
 
 isGameFinised = true
@@ -90,12 +85,7 @@ function validMove()
 end
 
 function availableMoves()
-    print(rook:validMoves())
-    print(knight:validMoves())
-    print(bishop:validMoves())
-    print(king:validMoves())
-    print(queen:validMoves())
-    print(pawn:validMoves())
+ 
 end
 
 function help()
