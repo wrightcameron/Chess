@@ -24,7 +24,7 @@ function availableMoves()
 end
 
 function help()
-    print("Type A for available moves, M to move piece, G to get pieces, P to print board, V to check if move is valid and H for help.")
+    print("Type A for available moves,\nM to move piece,\nG to get pieces,\nP to print board,\nV to check if move is valid,\nH for help.")
 end
 
 function isKingCheckMated()
@@ -40,6 +40,7 @@ isWhitePlayer = true
 
 board:printBoard()
 validMove()
+help()
 while isGameFinised ~= true do 
     --Tell players who is going
     if isWhitePlayer == true then
