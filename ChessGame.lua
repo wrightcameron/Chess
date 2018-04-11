@@ -92,9 +92,9 @@ while isGameFinised ~= true do
     elseif(name == 'A' or name == 'a') then
         availableMoves()
     elseif(name == 'M' or name == 'm') then
-
+        movePiece()
     elseif(nam == 'G' or name == 'g') then 
-
+        getPiece()
     else
         print("Invalid character input. Please enter character again.")
     end
