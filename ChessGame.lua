@@ -15,7 +15,13 @@ function movePiece()
     print("Type in new x cordinate:")
     local x = tonumber(io.read())
     print("Type in new y cordinate:")
-    local x = tonumber(io.read())
+    local y = tonumber(io.read())
+    if(board:validMove(x, y) == true) then
+        piece:move(x, y)
+    else
+        print("Invalid move!")
+    end
+    
 
 end 
 function getPiece()
