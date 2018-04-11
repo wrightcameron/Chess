@@ -6,6 +6,25 @@ local class = require 'middleclass'
 function printBoard(board)
     board:printBoard()
 end
+function movePiece()
+    print("Type in x cordinate:")
+    local x = tonumber(io.read())
+    print("Type in y cordinate:")
+    local y = tonumber(io.read())
+    local piece = board:getPieceAtsquare(x,y)
+    print("Type in new x cordinate:")
+    local x = tonumber(io.read())
+    print("Type in new y cordinate:")
+    local x = tonumber(io.read())
+
+end 
+function getPiece()
+    print("Type in x cordinate:")
+    local x = io.read("*number"))
+    print("Type in y cordinate:")
+    local y = io.read("*number"))
+    local piece = board:getPieceAtsquare(x,y)
+end 
 
 function validMove()
     print("Enter an X coordinate")
