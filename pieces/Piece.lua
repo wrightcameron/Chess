@@ -53,3 +53,11 @@ end
 function Piece:toString()
   return nil
 end
+
+function Piece:sameType(piece)
+  if(self.type == piece.type) then
+    return true
+  else
+    return false
+  end
+end

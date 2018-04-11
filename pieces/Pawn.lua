@@ -24,17 +24,25 @@ function Pawn:validMoves()
     --Direction it can move.
     if self.directionUp then
         if not self.firstMove then
-            table.insert(moveList, {self.x,self.y+1})
+            if not self:sameType(board:getPieceAtsquare(self.x,self.y+1)) then
+                table.insert(moveList, {self.x,self.y+1})
+            end
         else
-            table.insert(moveList, {self.x,self.y+2})
-            self.firstMove = false
+            if not self:sameType(board:getPieceAtsquare(self.x,self.y+2)) then
+                table.insert(moveList, {self.x,self.y+2})
+                self.firstMove = false
+            end
         end
     else
         if not self.firstMove then
-            table.insert(moveList, {self.x,self.y-1})
+            if not self:sameType(board:getPieceAtsquare(self.x,self.y-1)) then
+                table.insert(moveList, {self.x,self.y-1})
+            end
         else
-            table.insert(moveList, {self.x,self.y-2})
-            self.firstMove = false
+            if not self:sameType(board:getPieceAtsquare(self.x,self.y-2)) then
+                table.insert(moveList, {self.x,self.y-2})
+                self.firstMove = false
+            end
         end
     end
     --If opponient piece is there it can also attakck.
