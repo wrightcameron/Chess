@@ -35,7 +35,7 @@ function getPiece()
     local piece = board:getPieceAtsquare(x,y)
 end 
 
-function validMoves(x,y)
+function validMoves()
     print("Enter an X coordinate")
     local x = tonumber(io.read())
     print("Enter a Y coordinate")
@@ -60,12 +60,14 @@ function validMoves(x,y)
     end
 end
 
-function availableMoves()
- 
+function help()
+    print("Type \nA for available moves,\nM to move piece,\nG to get pieces,\nP to print board,\nV to check if move is valid,\nH for help,\nQ to quit.")
 end
 
-function help()
-    print("Type A for available moves,\nM to move piece,\nG to get pieces,\nP to print board,\nV to check if move is valid,\nH for help.")
+function quit(isGameFinised)
+    print("Quiting game, thanks for playing.")
+    isGameFinised = true
+    return isGameFinised
 end
 
 function isKingCheckMated()
@@ -76,14 +78,12 @@ end
 print("Ready to play a game of chess?")
 board = Board:new()
 
-isGameFinised = true
+isGameFinised = false
 isWhitePlayer = true
 
 help()
 board:printBoard()
---validMove()
-validMoves(x,y)
-while isGameFinised ~= true do 
+while isGameFinised ~= true do
     --Tell players who is going
     if isWhitePlayer == true then
         print("Player white's turn.")
@@ -91,31 +91,32 @@ while isGameFinised ~= true do
         print("PLayer black's turn.")
     end
 
-    print("What would you like to do? Type A for available moves, M to move piece, G to get pieces, P to print board, V to check if move is valid and H for help.")
-    --Open scanner and ask player what they want to do.
-        --Avaible moves
-        --Move piece
-        --Get pieces
-        --print board
-        --help (prints commands.)
     local name = io.read()
+    print(" ")
 
     if(name == 'H' or name == 'h') then 
         help()
+    elseif(name == 'Q' or name == 'q') then
+        isGameFinised = quit(isGameFinised)
     elseif(name == 'P' or name == 'p') then
-        printBoard()
+        board:printBoard()
     elseif(name == 'V' or name == 'v') then
-        validMove()
-    elseif(name == 'A' or name == 'a') then
-        availableMoves()
+        validMoves()
     elseif(name == 'M' or name == 'm') then
         movePiece()
+        if isWhitePlayer == true then
+            isWhitePlayer = false
+        else
+            isWhitePlayer = true
+        end
     elseif(nam == 'G' or name == 'g') then 
         getPiece()
     else
         print("Invalid character input. Please enter character again.")
     end
+    print("==================================")
 
+    print()
     if isKingCheckMated() then
         isGameFinised = true
     end
