@@ -83,7 +83,7 @@ end
 --Check if Square exists 
 function Board:validMove(X, Y)
   --Check if bounds are outside of array
-  if(X <= 0 or Y <= 0) then
+  if(X <= 0 or Y <= 0) or (X >= 9 or Y >= 9) then
     return false
   end
   square = self.squares[X][Y]

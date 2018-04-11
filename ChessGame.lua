@@ -45,8 +45,12 @@ function validMoves(x,y)
         piece = board:getPieceAtsquare(x,y)
         if(piece ~= nil) then
             validMoves = piece:validMoves(board)
-            for k,v in pairs(validMoves) do 
-                print(v[1],v[2]) 
+            for k,v in pairs(validMoves) do
+                io.write("[")
+                io.write(v[1])
+                io.write(",")
+                io.write(v[2])
+                io.write("]\n")   
             end
         else
             print("No piece at given coordinates")

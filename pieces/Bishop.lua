@@ -12,7 +12,7 @@ function Piece:validMoves(Board)
     moveList = {}
     for i=1,8 do
 
-        --Up one to the diagonal right 
+        --Up one to the diagonal right
         if board:validMove(self.x + i, self.y + i) and not self:sameType(board:getPieceAtsquare(self.x + i, self.y + i)) then
             table.insert(moveList, {self.x+i,self.y+i})
         end
