@@ -3,9 +3,12 @@ local class = require 'Board'
 package.path = package.path .. ";./dependencies/?.lua"
 local class = require 'middleclass'
 
+--Print the board
 function printBoard(board)
     board:printBoard()
 end
+
+--Move piece to new square.
 function movePiece()
     print("Type in x cordinate:")
     local x = tonumber(io.read())
@@ -26,19 +29,29 @@ function movePiece()
 end 
 function getPiece()
     print("Type in x cordinate:")
-    local x = io.read("*number"))
+    local x = io.read("*number")
     print("Type in y cordinate:")
-    local y = io.read("*number"))
+    local y = io.read("*number")
     local piece = board:getPieceAtsquare(x,y)
 end 
 
-function validMove()
+function validMoves(x,y)
     print("Enter an X coordinate")
     local x = tonumber(io.read())
     print("Enter a Y coordinate")
     local y = tonumber(io.read())
     if(board:validMove(x, y) == true) then
         print("Valid move!")
+        piece = board:getPieceAtsquare(x,y)
+        if(piece ~= nil) then
+            validMoves = piece:validMoves(board)
+            print(validMoves)
+            for k,v in pairs(validMoves) do 
+                print(v[1],v[2]) 
+            end
+        else
+            print("No piece at given coordinates")
+        end
     else
         print("Invalid move!")
     end
@@ -63,9 +76,10 @@ board = Board:new()
 isGameFinised = true
 isWhitePlayer = true
 
-board:printBoard()
-validMove()
 help()
+board:printBoard()
+--validMove()
+validMoves(x,y)
 while isGameFinised ~= true do 
     --Tell players who is going
     if isWhitePlayer == true then

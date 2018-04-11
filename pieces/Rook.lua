@@ -1,5 +1,5 @@
 package.path = package.path .. ";./?.lua"
-local class = require 'Piece'
+local pieceClass = require 'Piece'
 package.path = package.path .. ";../dependencies/?.lua"
 local class = require 'middleclass'
 
