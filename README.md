@@ -5,7 +5,7 @@
 * Spring Semester Year 2018
 
 ## Overview
-Lua implmentation of the game Chess. 
+Command line implementation of Chess using the interpreter language Lua
 
 ## Manifest
 
