@@ -26,7 +26,6 @@ Command line implementation of Chess using the interpreter language Lua.
 |src/pieces/Pawn.lua       |Pawn implementation                                     |                           
 |src/pieces/Queen.lua      |Queen implementation                                    |        
 |src/pieces/Rook.lua       |Rook implementation                                     |
-|---------------|-------------------------------------------------------------------|
 
 ## Program Design 
 For the group's Lua implementation of Chess, a Board object is created in the ChessGame class. The Board object call's the function initialize which creates a 2D table, reserves positions for all the pieces, and occupies the reserved positions with piece objects. All of the individual pieces are created using OOP and inheritance from the parent class Piece. The Board object is printed out to the console and the user is prompted to enter a specific character based off of the printed options in order to advance the game. The player can choose to print the board, check if a move is valid, check available moves, make a move, or get the pieces on the board. The game will keep alternating between players until the function isKingCheckMated equates to true. 
@@ -48,12 +47,11 @@ From the directory src containing the .lua source code, run the program:
 > lua ChessGame.lua
 
 User Commands: 
-A for available moves
-M to move piece 
-G to get pieces
-P to print board 
-V to check if move is valid 
-H for help
+* M to move piece 
+* P to print board 
+* V to check if move is valid 
+* H for help
+* Q to quit
 
 Board Setup:
 ```
@@ -67,15 +65,17 @@ Board Setup:
 3| * * * * * * * *
 2| P P P P P P P P
 1| R K B # Q B K R
-```
 
-p/P Pawn
-r/R Rook
-k/K Knight
-b/B Bishop
-q/Q Queen
-$/# King 
-*   Open Space 
+p/P = Pawn
+r/R  =Rook
+k/K = Knight
+b/B = Bishop
+q/Q = Queen
+$/# = King 
+* Open Space 
+
+Lowercase is black pieces, Uppercase is white pieces.
+```
 
 ## Testing
 
