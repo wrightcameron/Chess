@@ -46,8 +46,8 @@ function Piece:validMoves(Board)
 end
 
 function Piece:move(x, y)
-  self.setX(x)
-  self.setY(y)
+  self:setX(x)
+  self:setY(y)
 end
 
 function Piece:toString()

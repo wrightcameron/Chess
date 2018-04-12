@@ -20,13 +20,15 @@ function movePiece()
     print("Type in new y cordinate:")
     local y = tonumber(io.read())
     if(board:validMove(x, y) == true) then
-        piece:move(x, y)
+        board:movePiece(piece,x,y)
     else
         print("Invalid move!")
     end
     
 
 end 
+
+--Note used at time.
 function getPiece()
     print("Type in x cordinate:")
     local x = io.read("*number")
@@ -44,8 +46,8 @@ function validMoves()
         print("Valid move!")
         piece = board:getPieceAtsquare(x,y)
         if(piece ~= nil) then
-            validMoves = piece:validMoves(board)
-            for k,v in pairs(validMoves) do
+            validMove = piece:validMoves(board)
+            for k,v in pairs(validMove) do
                 io.write("[")
                 io.write(v[1])
                 io.write(",")
@@ -61,7 +63,7 @@ function validMoves()
 end
 
 function help()
-    print("Type \nA for available moves,\nM to move piece,\nG to get pieces,\nP to print board,\nV to check if move is valid,\nH for help,\nQ to quit.")
+    print("Type \nM to move piece,\nP to print board,\nV to check if move is valid,\nH for help,\nQ to quit.")
 end
 
 function quit(isGameFinised)
@@ -109,10 +111,8 @@ while isGameFinised ~= true do
         else
             isWhitePlayer = true
         end
-    elseif(nam == 'G' or name == 'g') then 
-        getPiece()
     else
-        print("Invalid character input. Please enter character again.")
+        print("Invalid character input. Please enter character again, type h for help.")
     end
     print("==================================")
 

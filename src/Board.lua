@@ -118,7 +118,7 @@ end
 
 function Board:printBoard()
   io.write("   ")
-  for i=1,8 do
+  for i=8,1,-1 do
     io.write(i)
     io.write(" ")
   end
